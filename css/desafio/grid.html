@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            grid-area: h;
+            background-color: lightcoral;
+        }
+        nav {
+            grid-area: n;
+            background-color: lightgreen;
+        }
+        main {
+            grid-area: m;
+            background-color: lightseagreen;
+        }
+        footer {
+            grid-area: f;
+            background-color: lightsalmon;
+        }
+        body {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: 100px 1fr 80px;
+            grid-template-areas: 
+                    'h h'
+                    'n m'
+                    'f f';
+            height: 100vh;
+        }
+        @media (max-width: 700px) {
+            body {
+                grid-template-areas: 
+                    'h'
+                    'n'
+                    'm'
+                    'f';
+                grid-template-columns: 1fr;
+                grid-template-rows: 80px 80px 1fr 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecalho">Cabeçalho</header>
+    <nav class="nav">Navegação</nav>
+    <main class="conteudo">CONTEUDO</main>
+    <footer>Rodapé</footer>
+</body>
+</html>

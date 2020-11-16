@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Desafio Menu</title>
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<style type="text/css">
+		* {
+			
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			background-color: lightgrey;
+			margin: 0;
+			font-family: 'Oswald';
+		}
+		.cabecalho {
+			background-color: #333;
+			height: 80px;
+			border-bottom: 5px solid #4faddb;
+		}
+		.logo {
+			display: inline-block;
+			height: 80px;
+			padding: 15px;
+		}
+		.logo img {
+			height: 50px;
+		}
+		.menu ul {
+            list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.cabecalho a {
+			font-size: 1.3em;
+			color: #eee;
+			text-decoration: none;
+            padding: 10px 15px;
+		}
+		.menu a:hover, .menu a.selected {
+			background-color: #4faddd;
+			color: #000;
+		}
+		.botao {
+			border-radius: 30px;
+            padding: 10px 25px;
+            margin-right: 10px;
+		}
+		.destaque {
+			background-color: #f50a31;
+			color: white;
+		}
+        .cabecalho {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .menu {
+            /* Ocupar o maior espaço do header */
+            flex-grow: 10;
+        }
+        .menu ul {
+            display: flex;
+        }
+        .menu li {
+            margin: 0px 10px;
+        }
+	</style>
+</head>
+<body>
+	<header class="cabecalho">
+		<div class="logo">
+			<a href="#inicio">
+				<img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo">
+			</a>
+		</div>
+		<nav class="menu">
+			<ul>
+				<li>
+					<a href="#inicio">Início</a>
+				</li>
+				<li>
+					<a href="#cursos">Cursos</a>
+				</li>
+				<li>
+					<a href="#sobre">Sobre</a>
+				</li>
+				<li>
+					<a href="#contato">Contato</a>
+				</li>
+			</ul>
+		</nav>
+		<aside class="autenticacao">
+			<a href="#login">Login</a>
+			<a href="#register" class="botao destaque">Registrar</a> 
+		</aside>
+	</header>
+
+	<script>
+		window.onhashchange = function(e) {
+			let oldURL = e.oldURL.split('#')[1];
+            let newURL = e.newURL.split('#')[1];
+
+			let oldLink = document.querySelector(`.menu a[href='#${oldURL}']`);
+			let newLink = document.querySelector(`.menu a[href='#${newURL}']`);
+			oldURL && oldLink.classList.remove("selected");
+			newURL && newLink.classList.add("selected");
+		}
+	</script>
+</body>
+</html>
